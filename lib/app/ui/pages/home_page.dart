@@ -12,22 +12,43 @@ class HomePage extends StatelessWidget {
       builder: (context, state) {
         final currentTheme = context.read<ThemeModeCubit>().currentTheme;
         return Scaffold(
+          // permite que o body seja desenhado por trás da AppBar
+          extendBodyBehindAppBar: true,
           drawer: HomeDrawer(currentTheme: currentTheme),
           appBar: AppBar(
+            // título com cor do tema (antes estava transparente)
             title: Text(
               'HomePage',
               style: TextStyle(color: currentTheme['fontColor']),
             ),
             centerTitle: true,
-            backgroundColor: currentTheme['appBar'],
+            // tornar a AppBar transparente para deixar a imagem visível por baixo
+            backgroundColor: Colors.transparent,
+            elevation: 0,
             foregroundColor: currentTheme['fontColor'],
           ),
           body: Container(
-            color: currentTheme['background'],
-            alignment: Alignment.center,
-            child: Text(
-              'Welcome to HomePage!',
-              style: TextStyle(color: currentTheme['fontColor']),
+            decoration: BoxDecoration(
+              color: currentTheme['background'],
+              image: DecorationImage(
+                image: AssetImage(currentTheme['imgBackground']),
+                fit: BoxFit.cover,
+                // opacity: 1.5,
+                colorFilter: ColorFilter.mode(
+                  currentTheme['background'].withOpacity(0.9),
+                  BlendMode.dstATop,
+                ),
+              ),
+            ),
+            // proteja o conteúdo visível do status bar e notch
+            child: SafeArea(
+              child: Container(
+                alignment: Alignment.center,
+                child: Text(
+                  'Welcome to HomePage!',
+                  style: TextStyle(color: currentTheme['fontColor']),
+                ),
+              ),
             ),
           ),
         );
@@ -35,4 +56,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-

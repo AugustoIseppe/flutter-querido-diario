@@ -1,5 +1,6 @@
 // Extrai as cores diretamente das chaves do colorThemes (definido abaixo)
 import 'package:flutter/material.dart';
+import 'package:querido_diario/app/utils/assets.dart';
 
 List<Color> get colors => colorThemes.keys.toList();
 
@@ -62,6 +63,7 @@ final darkTheme = {
   'appBar': Colors.grey[900],
   'fontColor': Colors.white,
   'primary': Colors.purple,
+  'imgBackground': Assets.bg1
 };
 
 final lightTheme = {
@@ -70,6 +72,7 @@ final lightTheme = {
   'appBar': Colors.purple,
   'fontColor': Colors.black,
   'primary': Colors.purple,
+  'imgBackground': Assets.bg2
 };
 
 // Temas individuais para cada cor
@@ -79,6 +82,7 @@ final redTheme = {
   'appBar': Colors.red[700],
   'fontColor': Colors.white,
   'primary': Colors.red,
+  'imgBackground': Assets.bg3
 };
 
 final blueTheme = {
@@ -87,6 +91,7 @@ final blueTheme = {
   'appBar': Colors.blue[700],
     'fontColor': Colors.black,
   'primary': Colors.blue,
+  'imgBackground': Assets.bg4 
 };
 
 final greenTheme = {
@@ -95,6 +100,7 @@ final greenTheme = {
   'appBar': Colors.green[700],
   'fontColor': Colors.white,
   'primary': Colors.green,
+  'imgBackground': Assets.bg6
 };
 
 final yellowTheme = {
@@ -103,6 +109,7 @@ final yellowTheme = {
   'appBar': Colors.yellow[700],
   'fontColor': Colors.black,
   'primary': Colors.yellow,
+  'imgBackground': Assets.bg7
 };
 
 final orangeTheme = {
@@ -111,6 +118,7 @@ final orangeTheme = {
   'appBar': Colors.orange[700],
   'fontColor': Colors.black,
   'primary': Colors.orange,
+  'imgBackground': Assets.bg8
 };
 
 final purpleTheme = {
@@ -119,6 +127,7 @@ final purpleTheme = {
   'appBar': Colors.purple[700],
   'fontColor': Colors.white,
   'primary': Colors.purple,
+  'imgBackground': Assets.bg9
 };
 
 final tealTheme = {
@@ -127,6 +136,7 @@ final tealTheme = {
   'appBar': Colors.teal[700],
   'fontColor': Colors.white,
   'primary': Colors.teal,
+  'imgBackground': Assets.bg10
 };
 
 final cyanTheme = {
@@ -135,6 +145,7 @@ final cyanTheme = {
   'appBar': Colors.cyan[700],
   'fontColor': Colors.black,
   'primary': Colors.cyan,
+  'imgBackground': Assets.bg11
 };
 
 final limeTheme = {
@@ -143,6 +154,7 @@ final limeTheme = {
   'appBar': Colors.lime[700],
   'fontColor': Colors.black,
   'primary': Colors.lime,
+  'imgBackground': Assets.bg1
 };
 
 final indigoTheme = {
@@ -151,6 +163,7 @@ final indigoTheme = {
   'appBar': Colors.indigo[700],
   'fontColor': Colors.white,
   'primary': Colors.indigo,
+  'imgBackground': Assets.bg2
 };
 
 final brownTheme = {
@@ -159,6 +172,7 @@ final brownTheme = {
   'appBar': Colors.brown[700],
   'fontColor': Colors.white,
   'primary': Colors.brown,
+  'imgBackground': Assets.bg3
 };
 
 final greyTheme = {
@@ -167,6 +181,7 @@ final greyTheme = {
   'appBar': Colors.grey[700],
   'fontColor': Colors.black,
   'primary': Colors.grey,
+  'imgBackground': Assets.bg4
 };
 
 // Map que referencia todos os temas individuais
