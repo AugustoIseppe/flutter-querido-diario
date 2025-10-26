@@ -11,7 +11,6 @@ List<Widget> getTemasWithSelection(Color? selectedColor) => colors.map(
     return Stack(
       children: [
         CircleAvatar(
-         
           backgroundColor: color,
           child: SizedBox(
             width: double.infinity,
@@ -60,10 +59,11 @@ List<Card> get temas => colors.map(
 final darkTheme = {
   'name': 'Dark',
   'background': Colors.black,
-  'appBar': Colors.grey[900],
+  'appBar': Colors.black,
   'fontColor': Colors.white,
   'primary': Colors.purple,
-  'imgBackground': Assets.bg1
+  'imgBackground': Assets.bg1,
+  'bottomNavBar': Colors.black,
 };
 
 final lightTheme = {
@@ -72,7 +72,8 @@ final lightTheme = {
   'appBar': Colors.purple,
   'fontColor': Colors.black,
   'primary': Colors.purple,
-  'imgBackground': Assets.bg2
+  'imgBackground': Assets.bg2,
+  'bottomNavBar': Colors.white,
 };
 
 // Temas individuais para cada cor
@@ -82,7 +83,8 @@ final redTheme = {
   'appBar': Colors.red[700],
   'fontColor': Colors.white,
   'primary': Colors.red,
-  'imgBackground': Assets.bg3
+  'imgBackground': Assets.bg3,
+  'bottomNavBar': Colors.red[700],
 };
 
 final blueTheme = {
@@ -91,7 +93,8 @@ final blueTheme = {
   'appBar': Colors.blue[700],
     'fontColor': Colors.black,
   'primary': Colors.blue,
-  'imgBackground': Assets.bg4 
+  'imgBackground': Assets.bg4,
+  'bottomNavBar': Colors.blue[700],
 };
 
 final greenTheme = {
@@ -100,7 +103,8 @@ final greenTheme = {
   'appBar': Colors.green[700],
   'fontColor': Colors.white,
   'primary': Colors.green,
-  'imgBackground': Assets.bg6
+  'imgBackground': Assets.bg6,
+  'bottomNavBar': Colors.green[700],
 };
 
 final yellowTheme = {
@@ -109,7 +113,8 @@ final yellowTheme = {
   'appBar': Colors.yellow[700],
   'fontColor': Colors.black,
   'primary': Colors.yellow,
-  'imgBackground': Assets.bg7
+  'imgBackground': Assets.bg7,
+  'bottomNavBar': Colors.yellow[700], 
 };
 
 final orangeTheme = {
@@ -118,7 +123,8 @@ final orangeTheme = {
   'appBar': Colors.orange[700],
   'fontColor': Colors.black,
   'primary': Colors.orange,
-  'imgBackground': Assets.bg8
+  'imgBackground': Assets.bg8,
+  'bottomNavBar': Colors.orange[700],
 };
 
 final purpleTheme = {
@@ -127,7 +133,8 @@ final purpleTheme = {
   'appBar': Colors.purple[700],
   'fontColor': Colors.white,
   'primary': Colors.purple,
-  'imgBackground': Assets.bg9
+  'imgBackground': Assets.bg9,
+  'bottomNavBar': Colors.purple[700],
 };
 
 final tealTheme = {
@@ -136,7 +143,8 @@ final tealTheme = {
   'appBar': Colors.teal[700],
   'fontColor': Colors.white,
   'primary': Colors.teal,
-  'imgBackground': Assets.bg10
+  'imgBackground': Assets.bg10,   
+  'bottomNavBar': Colors.teal[700],
 };
 
 final cyanTheme = {
@@ -145,7 +153,8 @@ final cyanTheme = {
   'appBar': Colors.cyan[700],
   'fontColor': Colors.black,
   'primary': Colors.cyan,
-  'imgBackground': Assets.bg11
+  'imgBackground': Assets.bg11,
+  'bottomNavBar': Colors.cyan[700],
 };
 
 final limeTheme = {
@@ -154,7 +163,8 @@ final limeTheme = {
   'appBar': Colors.lime[700],
   'fontColor': Colors.black,
   'primary': Colors.lime,
-  'imgBackground': Assets.bg1
+  'imgBackground': Assets.bg1,
+  'bottomNavBar': Colors.lime[700],
 };
 
 final indigoTheme = {
@@ -163,7 +173,8 @@ final indigoTheme = {
   'appBar': Colors.indigo[700],
   'fontColor': Colors.white,
   'primary': Colors.indigo,
-  'imgBackground': Assets.bg2
+  'imgBackground': Assets.bg2,
+  'bottomNavBar': Colors.indigo[700],
 };
 
 final brownTheme = {
@@ -172,7 +183,8 @@ final brownTheme = {
   'appBar': Colors.brown[700],
   'fontColor': Colors.white,
   'primary': Colors.brown,
-  'imgBackground': Assets.bg3
+  'imgBackground': Assets.bg3,
+  'bottomNavBar': Colors.brown[700],
 };
 
 final greyTheme = {
@@ -181,7 +193,8 @@ final greyTheme = {
   'appBar': Colors.grey[700],
   'fontColor': Colors.black,
   'primary': Colors.grey,
-  'imgBackground': Assets.bg4
+  'imgBackground': Assets.bg4,
+  'bottomNavBar': Colors.grey[700],
 };
 
 // Map que referencia todos os temas individuais

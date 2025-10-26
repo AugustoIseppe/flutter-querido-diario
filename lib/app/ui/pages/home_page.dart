@@ -18,10 +18,7 @@ class HomePage extends StatelessWidget {
           drawer: HomeDrawer(currentTheme: currentTheme),
           appBar: AppBar(
             // título com cor do tema (antes estava transparente)
-            title: Text(
-              'HomePage',
-              style: TextStyle(color: currentTheme['fontColor']),
-            ),
+            
             centerTitle: true,
             // tornar a AppBar transparente para deixar a imagem visível por baixo
             backgroundColor: Colors.transparent,
