@@ -1,12 +1,23 @@
 import 'dart:ui';
 
 import 'package:bloc/bloc.dart';
+import 'package:querido_diario/app/utils/assets.dart';
 import 'package:querido_diario/app/utils/themes.dart';
 
 part 'theme_mode_state.dart';
 
 class ThemeModeCubit extends Cubit<ThemeModeState> {
   ThemeModeCubit() : super(ThemeModeDark(darkTheme));
+
+  String randomBg() {
+    final List<String> backgrounds = [
+      Assets.cardImage1,
+      Assets.cardImage2,
+      Assets.cardImage3,
+    ];
+    backgrounds.shuffle();
+    return backgrounds.first;
+  }
 
   void switchToLight() {
     emit(ThemeModeLight(lightTheme));
