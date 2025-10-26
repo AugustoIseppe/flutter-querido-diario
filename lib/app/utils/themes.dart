@@ -4,7 +4,6 @@ import 'package:querido_diario/app/utils/assets.dart';
 
 List<Color> get colors => colorThemes.keys.toList();
 
-// Gera os temas visuais baseados nas cores do colorThemes
 List<Widget> getTemasWithSelection(Color? selectedColor) => colors.map(
   (color) {
     final isSelected = selectedColor == color;
@@ -50,7 +49,7 @@ List<Widget> getTemasWithSelection(Color? selectedColor) => colors.map(
 List<Card> get temas => colors.map(
   (color) => Card(
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(10)),
+      borderRadius: BorderRadius.all(Radius.circular(5)),
     ),
     color: color,
   ),

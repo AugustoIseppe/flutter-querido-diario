@@ -131,12 +131,12 @@ class _PhrasesCardState extends State<PhrasesCard>
       
               Widget content = Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
                   image:
                       hasImage
                           ? DecorationImage(
                             image: AssetImage(_currentImage!),
                             fit: BoxFit.cover,
+                            // opacity: 0.8,
                           )
                           : null,
                 ),
