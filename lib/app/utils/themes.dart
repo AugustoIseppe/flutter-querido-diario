@@ -7,40 +7,108 @@ List<Color> get colors => colorThemes.keys.toList();
 List<Widget> getTemasWithSelection(Color? selectedColor) => colors.map(
   (color) {
     final isSelected = selectedColor == color;
-    return Stack(
-      children: [
-        CircleAvatar(
-          backgroundColor: color,
-          child: SizedBox(
-            width: double.infinity,
-            height: double.infinity,
+    final theme = colorThemes[color];
+    final backgroundImage = theme?['imgBackground'] as String?;
+    final themeName = theme?['name'] as String? ?? 'Tema';
+    
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        border: isSelected 
+          ? Border.all(color: Colors.green, width: 3)
+          : null,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 4,
+            offset: Offset(0, 2),
           ),
-        ),
-        if (isSelected)
-          Positioned(
-            top: 4,
-            right: 4,
-            child: Container(
-              padding: EdgeInsets.all(2),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black26,
-                    blurRadius: 2,
-                    offset: Offset(0, 1),
-                  ),
-                ],
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: Stack(
+          children: [
+            // Imagem de fundo
+            if (backgroundImage != null)
+              Positioned.fill(
+                child: Image.asset(
+                  height: 170,
+                  backgroundImage,
+                  fit: BoxFit.cover,
+                ),
               ),
-              child: Icon(
-                Icons.check,
-                color: Colors.green,
-                size: 16,
+            // Overlay escuro sutil para melhorar legibilidade
+            Positioned.fill(
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Colors.black.withOpacity(0.1),
+                      Colors.black.withOpacity(0.3),
+                    ],
+                  ),
+                ),
               ),
             ),
-          ),
-      ],
+            // Nome do tema
+            Positioned(
+              bottom: 8,
+              left: 8,
+              right: 8,
+              child: Text(
+                themeName,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                  shadows: [
+                    Shadow(
+                      color: Colors.black87,
+                      blurRadius: 4,
+                    ),
+                  ],
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            // Círculo com a cor do tema
+            Positioned(
+              top: 6,
+              right: 6,
+              child: Container(
+                width: 26,
+                height: 26,
+                decoration: BoxDecoration(
+                  color: color,
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: Colors.white,
+                    width: 2,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black38,
+                      blurRadius: 4,
+                      offset: Offset(0, 2),
+                    ),
+                  ],
+                ),
+                // Check indicator dentro do círculo
+                child: isSelected
+                  ? Icon(
+                      Icons.check,
+                      color: Colors.white,
+                      size: 20,
+                    )
+                  : null,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   },
 ).toList();
@@ -75,17 +143,6 @@ final lightTheme = {
   'bottomNavBar': Colors.white,
 };
 
-// Temas individuais para cada cor
-final redTheme = {
-  'name': 'Vermelho',
-  'background': Colors.red[50],
-  'appBar': Colors.red[700],
-  'fontColor': Colors.white,
-  'primary': Colors.red,
-  'imgBackground': Assets.bg3,
-  'bottomNavBar': Colors.red[700],
-};
-
 final blueTheme = {
   'name': 'Azul',
   'background': Colors.blue[50],
@@ -94,36 +151,6 @@ final blueTheme = {
   'primary': Colors.blue,
   'imgBackground': Assets.bg4,
   'bottomNavBar': Colors.blue[700],
-};
-
-final greenTheme = {
-  'name': 'Verde',
-  'background': Colors.green[50],
-  'appBar': Colors.green[700],
-  'fontColor': Colors.white,
-  'primary': Colors.green,
-  'imgBackground': Assets.bg6,
-  'bottomNavBar': Colors.green[700],
-};
-
-final yellowTheme = {
-  'name': 'Amarelo',
-  'background': Colors.yellow[200],
-  'appBar': Colors.yellow[700],
-  'fontColor': Colors.black,
-  'primary': Colors.yellow,
-  'imgBackground': Assets.bg7,
-  'bottomNavBar': Colors.yellow[700], 
-};
-
-final orangeTheme = {
-  'name': 'Laranja',
-  'background': Colors.orange[50],
-  'appBar': Colors.orange[700],
-  'fontColor': Colors.black,
-  'primary': Colors.orange,
-  'imgBackground': Assets.bg8,
-  'bottomNavBar': Colors.orange[700],
 };
 
 final purpleTheme = {
@@ -136,16 +163,6 @@ final purpleTheme = {
   'bottomNavBar': Colors.purple[700],
 };
 
-final tealTheme = {
-  'name': 'Verde-azulado',
-  'background': Colors.teal[50],
-  'appBar': Colors.teal[700],
-  'fontColor': Colors.white,
-  'primary': Colors.teal,
-  'imgBackground': Assets.bg10,   
-  'bottomNavBar': Colors.teal[700],
-};
-
 final cyanTheme = {
   'name': 'Ciano',
   'background': Colors.cyan[50],
@@ -156,59 +173,31 @@ final cyanTheme = {
   'bottomNavBar': Colors.cyan[700],
 };
 
-final limeTheme = {
-  'name': 'Lima',
-  'background': Colors.lime[50],
-  'appBar': Colors.lime[700],
-  'fontColor': Colors.black,
-  'primary': Colors.lime,
-  'imgBackground': Assets.bg1,
-  'bottomNavBar': Colors.lime[700],
-};
-
 final indigoTheme = {
   'name': 'Índigo',
   'background': Colors.indigo[50],
   'appBar': Colors.indigo[700],
   'fontColor': Colors.white,
   'primary': Colors.indigo,
-  'imgBackground': Assets.bg2,
+  'imgBackground': Assets.bg6,
   'bottomNavBar': Colors.indigo[700],
 };
 
-final brownTheme = {
-  'name': 'Marrom',
-  'background': Colors.brown[50],
-  'appBar': Colors.brown[700],
-  'fontColor': Colors.white,
-  'primary': Colors.brown,
-  'imgBackground': Assets.bg3,
-  'bottomNavBar': Colors.brown[700],
-};
-
-final greyTheme = {
-  'name': 'Cinza',
-  'background': Colors.grey[100],
-  'appBar': Colors.grey[700],
+final pinkTheme = {
+  'name': 'Pink',
+  'background': Colors.pink[50],
+  'appBar': Colors.pink[700],
   'fontColor': Colors.black,
-  'primary': Colors.grey,
-  'imgBackground': Assets.bg4,
-  'bottomNavBar': Colors.grey[700],
+  'primary': Colors.pink,
+  'imgBackground': Assets.bg81,
+  'bottomNavBar': Colors.pink[700],
 };
 
-// Map que referencia todos os temas individuais
 final colorThemes = {
-  Colors.red: redTheme,
   Colors.blue: blueTheme,
-  Colors.green: greenTheme,
-  Colors.yellow: yellowTheme,
-  Colors.orange: orangeTheme,
   Colors.purple: purpleTheme,
-  Colors.teal: tealTheme,
   Colors.cyan: cyanTheme,
-  Colors.lime: limeTheme,
   Colors.indigo: indigoTheme,
-  Colors.brown: brownTheme,
-  Colors.grey: greyTheme,
   Colors.black: darkTheme,
+  Colors.pink: pinkTheme
 };

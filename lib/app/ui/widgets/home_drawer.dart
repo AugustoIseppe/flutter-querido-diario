@@ -54,23 +54,25 @@ class HomeDrawer extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          const Text(
+                          Text(
                             'Escolha uma cor para personalizar o tema do app:',
                             textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: currentTheme['fontColor']
+                            ),
                           ),
                           const SizedBox(height: 16),
-                          // Grid de temas com altura fixa
+                          // Grid de temas com altura ajustada para cards maiores
                           SizedBox(
-                            height:
-                               180, // Altura menor para círculos pequenos
+                            height: 450, // Altura maior para cards verticais
                             child: GridView.builder(
                               shrinkWrap: true,
                               gridDelegate:
                                   const SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount:
-                                        5, // Mais colunas para círculos pequenos
-                                    crossAxisSpacing: 4,
-                                    mainAxisSpacing: 4,
+                                    crossAxisCount: 3, // 3 colunas para cards maiores
+                                    crossAxisSpacing: 12,
+                                    mainAxisSpacing: 12,
+                                    childAspectRatio: 0.75, // cards mais altos que largos
                                   ),
                               itemCount: colors.length,
                               itemBuilder: (context, index) {
@@ -116,7 +118,9 @@ class HomeDrawer extends StatelessWidget {
                         onPressed: () {
                           Navigator.of(context).pop();
                         },
-                        child: const Text('OK'),
+                        child: Text('OK', style: TextStyle(
+                          color: currentTheme['fontColor'],
+                        ),),
                       ),
                     ],
                   );

@@ -6,6 +6,7 @@ class Assets {
   static const bg6 = 'assets/images/6.jpeg';
   static const bg7 = 'assets/images/7.jpeg';
   static const bg8 = 'assets/images/8.jpeg';
+  static const bg81 = 'assets/images/8.png';
   static const bg9 = 'assets/images/9.jpeg';
   static const bg10 = 'assets/images/10.jpeg';
   static const bg11 = 'assets/images/11.jpeg';
